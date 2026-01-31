@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Key Generator Pro</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🔑 Key Generator Pro</h1>
+            <p>Generate secure keys & manage your collection</p>
+        </header>
+
+        <main>
+            <!-- Generator Section -->
+            <section class="generator-section">
+                <div class="generator-card">
+                    <h2>Generate New Key</h2>
+                    <div class="options">
+                        <label>
+                            <input type="radio" name="keyType" value="uuid" checked>
+                            UUID (36 chars)
+                        </label>
+                        <label>
+                            <input type="radio" name="keyType" value="api">
+                            API Key (64 chars)
+                        </label>
+                        <label>
+                            <input type="radio" name="keyType" value="license">
+                            License Key (25 chars)
+                        </label>
+                    </div>
+                    <button id="generateBtn" class="generate-btn">Generate Key</button>
+                    <div id="generatedKey" class="key-display hidden">
+                        <code id="keyValue"></code>
+                        <div class="key-actions">
+                            <button id="copyBtn" class="copy-btn">📋 Copy</button>
+                            <button id="saveBtn" class="save-btn">💾 Save to Backend</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Backend Viewer -->
+            <section class="backend-section">
+                <div class="backend-card">
+                    <h2>📁 Backend Storage (backend.txt)</h2>
+                    <div class="backend-controls">
+                        <button id="refreshBtn" class="refresh-btn">Refresh</button>
+                        <button id="downloadBtn" class="download-btn">⬇️ Download TXT</button>
+                        <button id="clearBtn" class="clear-btn">🗑️ Clear All</button>
+                    </div>
+                    <textarea id="backendContent" readonly placeholder="Backend file is empty..."></textarea>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <p>Generated keys are stored locally in <code>backend.txt</code></p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
